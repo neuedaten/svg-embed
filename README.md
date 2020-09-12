@@ -1,5 +1,9 @@
 # SVG embed view helper for TYPO3 CMS
 
+## install:
+
+`composer req neuedaten/svg-embed`
+
 ## Use:
 
 ### load namespace:
