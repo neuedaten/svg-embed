@@ -1,0 +1,17 @@
+{
+    "name": "neuedaten/svg-embed",
+    "description": "TYPO3 CMS view helper to embed SVG files",
+    "type": "typo3-cms-extension",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Bastian schwabe",
+            "email": "bas@neuedaten.de"
+        }
+    ],
+    "autoload": {
+		"psr-4": {
+			"Neuedaten\\SvgEmbed\\": "Classes/"
+		}
+	}
+}
