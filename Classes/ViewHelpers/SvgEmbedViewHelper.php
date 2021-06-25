@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright 2020 Bastian Schwabe <bas@neuedaten.de>
+ * Copyright 2021 Bastian Schwabe <bas@neuedaten.de>
  *
  * This file is part of the TYPO3 CMS project.
  *
@@ -31,11 +31,13 @@ class SvgEmbedViewHelper extends AbstractViewHelper
 
     const FAL_ID = 'FAL_ID';
     const FAL_OBJECT = 'FAL_OBJECT';
+    const FAL = 'FAL';
     const PATH = 'PATH';
+    const ARRAY = 'ARRAY';
 
     public function initializeArguments()
     {
-        $this->registerArgument('src', '', 'The svg file path to embed', true);
+        $this->registerArgument('src', 'mixed', 'The svg file path to embed', true);
         $this->registerArgument('srcType', 'string', 'src type (FAL_ID, FAL_OBJECT, PATH)', false, self::PATH);
     }
 
@@ -68,7 +70,14 @@ class SvgEmbedViewHelper extends AbstractViewHelper
                 $path = GeneralUtility::getFileAbsFileName($file->getPublicUrl());
                 break;
             case self::FAL_OBJECT:
+            case self::FAL:
                 $path = GeneralUtility::getFileAbsFileName($src->getPublicUrl());
+                break;
+
+            case self::ARRAY:
+                if (array_key_exists('url', $src)) {
+                    $path = GeneralUtility::getFileAbsFileName($src['url']);
+                }
                 break;
             case self::PATH:
             default:

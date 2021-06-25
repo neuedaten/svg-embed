@@ -1,6 +1,6 @@
 ### Copyright notice
 
-> (c) 2020 Bastian Schwabe <bas@neuedaten.de>
+> (c) 2021 Bastian Schwabe <bas@neuedaten.de>
 > All rights reserved
 
 This repository is part of the TYPO3 project. The TYPO3 project is
