@@ -65,7 +65,7 @@ class SvgEmbedViewHelper extends AbstractViewHelper
 
         switch($srcType) {
             case self::FAL_ID:
-                $resourceFactory = ResourceFactory::getInstance();
+                $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
                 $file = $resourceFactory->getFileObjectFromCombinedIdentifier($src);
                 $path = GeneralUtility::getFileAbsFileName($file->getPublicUrl());
                 break;
