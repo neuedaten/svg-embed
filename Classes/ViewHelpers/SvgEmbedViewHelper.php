@@ -39,6 +39,7 @@ class SvgEmbedViewHelper extends AbstractViewHelper
     {
         $this->registerArgument('src', 'mixed', 'The svg file path to embed', true);
         $this->registerArgument('srcType', 'string', 'src type (FAL_ID, FAL_OBJECT, PATH)', false, self::PATH);
+        $this->registerArgument('cleanup', 'bool', 'Remove comments and id attributes', false, false);
     }
 
     /**
@@ -96,6 +97,18 @@ class SvgEmbedViewHelper extends AbstractViewHelper
             }
         }
 
+        if ($arguments['cleanup'] && $fileContent) {
+           $fileContent = self::cleanUpSvg($fileContent);
+        }
+
         return $fileContent;
+    }
+
+    private static function cleanUpSvg(string $svgContent): string
+    {
+        $svgContent = preg_replace('/<!--(.*?)-->/', '', $svgContent);
+        $svgContent = preg_replace('/\s+id="[^"]*"/', '', $svgContent);
+        $svgContent = preg_replace('/<\?xml.*?\?>/', '', $svgContent);
+        return $svgContent;
     }
 }
