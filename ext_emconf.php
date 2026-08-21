@@ -22,15 +22,11 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Bastian Schwabe',
     'author_email' => 'bas@neuedaten.de',
     'author_company' => 'Neuedaten',
-    'state' => 'beta',
-    'internal' => '',
-    'uploadfolder' => '0',
-    'createDirs' => '',
-    'clearCacheOnLoad' => 0,
-    'version' => '0.10.0',
+    'state' => 'stable',
+    'version' => '2.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0-10.4.99',
+            'typo3' => '13.4.0-14.99.99',
         ],
         'conflicts' => [
         ],
